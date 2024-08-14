@@ -1,6 +1,6 @@
 <?php
 
-abstract class unit{
+abstract class Unit{
     public $name;
     public $alive = true;
     public $weapon;
@@ -18,19 +18,19 @@ abstract class unit{
 
 }
 
-class soldier extends unit{
+class Soldier extends unit{
     public function attack(){
         echo $this->name . ' cut with ' . $this->weapon;
     }
 }
 
-class archer extends unit{
+class Archer extends unit{
     public function attack(){
         echo $this->name . ' is attacking with ' . $this->weapon;
     }
 }
 
-$archer = new archer('archer', 'bow');
-$soldier = new soldier('soldier', 'sword');
+$archer = new Archer('archer', 'bow');
+$soldier = new Soldier('soldier', 'sword');
 
 echo "<p>{$soldier->move()} {$archer->attack()}</p>";
