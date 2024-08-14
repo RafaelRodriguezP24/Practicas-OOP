@@ -71,7 +71,7 @@ final class Person {
     }
 }
 
-$person = new Person("John", "Doe", "JD", "1990-01-01");
+$person = new Person("John", "Doe", "JD", "1990-03-24");
 
 echo "{$person->fullName()} is {$person->getNickName()} y se quiere cambiar el alias ha {$person->setNickName('JDD')} {$person->getNickName()} 
 su cumpleaños es {$person->birthDate()} y tiene {$person->getAge()} years old.\n";
