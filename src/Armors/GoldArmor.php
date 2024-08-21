@@ -1,7 +1,6 @@
 <?php
-namespace Medine;
+namespace Medine\Armors;
 
-use Flexio\Armor;
 class GoldArmor implements Armor
 {
     public function reduceDamage($damage): int
