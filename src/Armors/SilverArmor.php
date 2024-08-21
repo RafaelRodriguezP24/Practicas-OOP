@@ -1,8 +1,6 @@
 <?php
 
-namespace Medine;
-
-use Flexio\Armor;
+namespace Medine\Armors;
 
 class SilverArmor implements Armor
 {

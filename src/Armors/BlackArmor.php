@@ -1,8 +1,7 @@
 <?php
 
-namespace Medine;
+namespace Medine\Armors;
 
-use Flexio\Armor;
 class BlackArmor implements Armor
 {
     public function reduceDamage($damage): int

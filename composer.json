@@ -1,0 +1,20 @@
+{
+    "name": "medine/oop",
+    "description": "proyecto demo para el curso de programacion orientada a objetos",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "files": [
+            "src/helpers.php"
+        ],
+        "psr-4": {
+            "Medine\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Rafael Rodriguez"
+        }
+    ],
+    "require": {}
+}

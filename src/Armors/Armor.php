@@ -1,6 +1,6 @@
 <?php
 
-namespace Flexio;
+namespace Medine\Armors;
 
 interface Armor
 {

@@ -2,7 +2,8 @@
 
 namespace Medine;
 
-use Flexio\Armor;
+use Medine\Armors\Armor;
+
 abstract class Unit{
     protected string $name;
     protected int $hp = 100;

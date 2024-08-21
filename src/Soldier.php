@@ -2,7 +2,8 @@
 
 namespace Medine;
 
-use Flexio\Armor;
+use Medine\Armors\Armor;
+
 class Soldier extends unit{
     protected int $damage = 40;
     protected Armor $armor;
