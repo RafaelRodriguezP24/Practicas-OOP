@@ -2,20 +2,13 @@
 
 namespace Medine;
 
-use Medine\Armors\Armor;
+use Medine\Weapons\Bow\Bow;
 
-class Archer extends unit{
-    protected int $damage = 20;
-    protected Armor $armor;
-    public function __construct($name, Armor $armor = null){
-        parent::__construct($name);
-        parent::setArmor($armor);
-    }
-    public function attack(unit $opponent): void
+class Archer extends unit
+{
+    public function __construct($name, Bow $bow)
     {
-        show("{$this->name} dispara una flecha a {$opponent->getName()}");
-
-        $opponent->takeDamage($this->damage);
+        parent::__construct($name, $bow);
     }
 }
 

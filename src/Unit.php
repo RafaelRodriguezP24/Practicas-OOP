@@ -7,15 +7,26 @@ use Medine\Armors\Armor;
 abstract class Unit{
     protected string $name;
     protected int $hp = 100;
-    public function __construct($name, Armor $armor = null){
+    protected Armor $armor;
+    protected Weapon $weapon;
+    public function __construct($name, Weapon $weapon ) {
         $this->name = $name;
+        $this->weapon = $weapon;
+    }
+
+    public function setWeapon(Weapon $weapon): void
+    {
+        $this->weapon = $weapon;
     }
     public function move(): void
     {
         echo $this->name . ' is moving to the battlefield ';
     }
-    public  function attack(unit $opponent){
+    public  function attack(unit $opponent): void
+    {
+        show($this->weapon->getMessages($this, $opponent));
 
+        $opponent->takeDamage($this->weapon->getDamage());
     }
     public function getHp(): int
     {
