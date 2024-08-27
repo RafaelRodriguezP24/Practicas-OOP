@@ -2,10 +2,15 @@
 
 namespace Medine\Armors;
 
+use Medine\Attack;
+
 class SilverArmor implements Armor
 {
-    public function reduceDamage($damage): int
+    public function reduceDamage(Attack $attack): int
     {
-        return $damage / 2;
+        if ($attack->isPhysical()) {
+            return $attack->getDamage() / 2;
+        }
+        return $attack->getDamage();
     }
 }

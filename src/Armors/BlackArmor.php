@@ -2,10 +2,12 @@
 
 namespace Medine\Armors;
 
+use Medine\Attack;
+
 class BlackArmor implements Armor
 {
-    public function reduceDamage($damage): int
+    public function reduceDamage(Attack $attack): int
     {
-        return $damage / 4;
+        return $attack->getDamage() / 4;
     }
 }

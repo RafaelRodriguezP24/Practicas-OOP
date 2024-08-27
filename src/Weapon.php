@@ -5,11 +5,11 @@ namespace Medine;
 abstract class Weapon
 {
     protected int $damage = 0;
+    protected bool $magical = false;
+    protected string $description = ':unit ataca a :opponent';
 
-    public function getDamage(): int
+    public function createAttack(): Attack
     {
-        return $this->damage;
+        return new Attack($this->damage, $this->magical, $this->description);
     }
-
-    abstract public function getMessages(Unit $attacker, Unit $opponent): string;
 }

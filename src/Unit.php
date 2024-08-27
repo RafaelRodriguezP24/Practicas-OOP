@@ -4,7 +4,7 @@ namespace Medine;
 
 use Medine\Armors\Armor;
 
-abstract class Unit{
+class Unit{
     protected string $name;
     protected int $hp = 100;
     protected Armor $armor;
@@ -24,9 +24,11 @@ abstract class Unit{
     }
     public  function attack(unit $opponent): void
     {
-        show($this->weapon->getMessages($this, $opponent));
+        $attack = $this->weapon->createAttack();
 
-        $opponent->takeDamage($this->weapon->getDamage());
+        show($attack->getDescription($this, $opponent));
+
+        $opponent->takeDamage($attack);
     }
     public function getHp(): int
     {
@@ -36,10 +38,10 @@ abstract class Unit{
     {
         $this->hp = $hp;
     }
-    public function takeDamage($damage): int
+    public function takeDamage(Attack $attack): int
     {
         if($this->armor != null){
-            $damage = $this->armor->reduceDamage($damage);
+            $damage = $this->armor->reduceDamage($attack);
             if ($damage == 0) {
                 show("{$this->name} ha logrado esquivar el ataque");
             }
@@ -65,9 +67,12 @@ abstract class Unit{
         exit();
     }
 
-    public function reduceDamage($damage): int
+    public function reduceDamage(Attack $attack): int
     {
-        return $damage;
+        if ($this->armor) {
+            return $this->armor->reduceDamage($attack);
+        }
+        return $attack->getDamage();
     }
 
     public function setArmor(Armor $armor = null): void

@@ -1,10 +1,12 @@
 <?php
 namespace Medine\Armors;
 
+use Medine\Attack;
+
 class GoldArmor implements Armor
 {
-    public function reduceDamage($damage): int
+    public function reduceDamage(Attack $attack): int
     {
-        return $damage / 3;
+        return $attack->getDamage() / 3;
     }
 }
