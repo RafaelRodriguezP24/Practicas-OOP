@@ -4,9 +4,9 @@ namespace Medine\Armors;
 
 use Medine\Attack;
 
-class ArcherArmor implements Armor
+class ArcherArmor extends Armor
 {
-    public function reduceDamage(Attack $attack): int
+    public function reducePhysicalDamage(Attack $attack): int
     {
         if (rand(0, 1)) {
             return $attack->getDamage();

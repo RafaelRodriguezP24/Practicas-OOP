@@ -12,6 +12,7 @@ class Unit{
     public function __construct($name, Weapon $weapon ) {
         $this->name = $name;
         $this->weapon = $weapon;
+        $this->armor = new Armors\MissingArmor();
     }
 
     public function setWeapon(Weapon $weapon): void
@@ -40,12 +41,12 @@ class Unit{
     }
     public function takeDamage(Attack $attack): int
     {
-        if($this->armor != null){
-            $damage = $this->armor->reduceDamage($attack);
-            if ($damage == 0) {
-                show("{$this->name} ha logrado esquivar el ataque");
-            }
+
+        $damage = $this->armor->reduceDamage($attack);
+        if ($damage == 0) {
+            show("{$this->name} ha logrado esquivar el ataque");
         }
+
         $this->hp -= $damage;
 
         show("{$this->name} ha recibido {$damage} puntos de daño");
@@ -65,14 +66,6 @@ class Unit{
     {
         show("{$this->name} ha muerto");
         exit();
-    }
-
-    public function reduceDamage(Attack $attack): int
-    {
-        if ($this->armor) {
-            return $this->armor->reduceDamage($attack);
-        }
-        return $attack->getDamage();
     }
 
     public function setArmor(Armor $armor = null): void

@@ -3,9 +3,9 @@ namespace Medine\Armors;
 
 use Medine\Attack;
 
-class GoldArmor implements Armor
+class GoldArmor extends Armor
 {
-    public function reduceDamage(Attack $attack): int
+    public function reducePhysicalDamage(Attack $attack): int
     {
         return $attack->getDamage() / 3;
     }
