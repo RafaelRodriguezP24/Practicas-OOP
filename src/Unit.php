@@ -4,7 +4,7 @@ namespace Medine;
 
 use Medine\Armors\Armor;
 
-abstract class Unit{
+class Unit{
     protected string $name;
     protected int $hp = 100;
     protected Armor $armor;
@@ -12,6 +12,7 @@ abstract class Unit{
     public function __construct($name, Weapon $weapon ) {
         $this->name = $name;
         $this->weapon = $weapon;
+        $this->armor = new Armors\MissingArmor();
     }
 
     public function setWeapon(Weapon $weapon): void
@@ -24,9 +25,11 @@ abstract class Unit{
     }
     public  function attack(unit $opponent): void
     {
-        show($this->weapon->getMessages($this, $opponent));
+        $attack = $this->weapon->createAttack();
 
-        $opponent->takeDamage($this->weapon->getDamage());
+        show($attack->getDescription($this, $opponent));
+
+        $opponent->takeDamage($attack);
     }
     public function getHp(): int
     {
@@ -36,14 +39,14 @@ abstract class Unit{
     {
         $this->hp = $hp;
     }
-    public function takeDamage($damage): int
+    public function takeDamage(Attack $attack): int
     {
-        if($this->armor != null){
-            $damage = $this->armor->reduceDamage($damage);
-            if ($damage == 0) {
-                show("{$this->name} ha logrado esquivar el ataque");
-            }
+
+        $damage = $this->armor->reduceDamage($attack);
+        if ($damage == 0) {
+            show("{$this->name} ha logrado esquivar el ataque");
         }
+
         $this->hp -= $damage;
 
         show("{$this->name} ha recibido {$damage} puntos de daño");
@@ -63,11 +66,6 @@ abstract class Unit{
     {
         show("{$this->name} ha muerto");
         exit();
-    }
-
-    public function reduceDamage($damage): int
-    {
-        return $damage;
     }
 
     public function setArmor(Armor $armor = null): void

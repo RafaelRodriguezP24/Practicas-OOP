@@ -8,9 +8,6 @@ use Medine\Weapon;
 class BasicSword extends Weapon
 {
     protected int $damage = 40;
+    protected string $description = ':unit ataca con la espada a :opponent';
 
-    public function getMessages(Unit $attacker, Unit $opponent): string
-    {
-        return "{$attacker->getName()} ataca con la espada a {$opponent->getName()}";
-    }
 }

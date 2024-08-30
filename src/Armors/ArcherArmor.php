@@ -2,14 +2,16 @@
 
 namespace Medine\Armors;
 
-class ArcherArmor implements Armor
+use Medine\Attack;
+
+class ArcherArmor extends Armor
 {
-    public function reduceDamage($damage): int
+    public function reducePhysicalDamage(Attack $attack): int
     {
         if (rand(0, 1)) {
-            return $damage;
+            return $attack->getDamage();
         }else{
-            return $damage = 0;
+            return $attack->getDamage() * 0;
         }
     }
 }

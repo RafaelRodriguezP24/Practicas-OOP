@@ -12,9 +12,9 @@ require '../src/Unit.php';
 $armor = new SilverArmor();
 $armorArc = new ArcherArmor();
 
-$robin = new Archer('Robin Hood', new Weapons\Bow\BasicBow());
+$robin = new Unit('Robin Hood', new Weapons\FireBow());
 $robin->setArmor($armorArc);
-$arturo = new Soldier('Arturo', new Weapons\BasicSword());
+$arturo = new Unit('Arturo', new Weapons\BasicSword());
 $arturo->setArmor($armor);
 
 $robin->attack($arturo);
