@@ -9,6 +9,12 @@ require '../vendor/autoload.php';
 
 require '../src/Unit.php';
 
+Translator::load([
+    'BasicBowAttack' => ':unit dispara una flecha a :opponent',
+    'BasicSwordAttack' => ':unit ataca con la espada a :opponent',
+    'FireBowAttack' => ':unit dispara una flecha de fuego a :opponent'
+]);
+
 $armor = new SilverArmor();
 $armorArc = new ArcherArmor();
 
