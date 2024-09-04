@@ -3,6 +3,7 @@
 namespace Medine;
 
 use Medine\Armors\ArcherArmor;
+use Medine\Armors\BlackArmor;
 use Medine\Armors\SilverArmor;
 
 require '../vendor/autoload.php';
@@ -15,13 +16,16 @@ Translator::load([
     'FireBowAttack' => ':unit dispara una flecha de fuego a :opponent'
 ]);
 
-$armor = new SilverArmor();
 $armorArc = new ArcherArmor();
+
+$arturo = Unit::createSoldier()
+    ->setArmor(new blackArmor())
+    ->setWeapon(new Weapons\BasicSword())
+    ->setShild();
 
 $robin = new Unit('Robin Hood', new Weapons\FireBow());
 $robin->setArmor($armorArc);
-$arturo = new Unit('Arturo', new Weapons\BasicSword());
-$arturo->setArmor($armor);
+
 
 $robin->attack($arturo);
 $arturo->attack($robin);

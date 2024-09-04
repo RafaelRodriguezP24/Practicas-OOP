@@ -15,9 +15,18 @@ class Unit{
         $this->armor = new Armors\MissingArmor();
     }
 
-    public function setWeapon(Weapon $weapon): void
+    public static function createSoldier(): Unit
+    {
+        $soldier = new Unit('Soldier', new Weapons\BasicSword());
+        $soldier->setArmor(new Armors\SilverArmor());
+        return $soldier;
+    }
+
+    public function setWeapon(Weapon $weapon): Unit
     {
         $this->weapon = $weapon;
+
+        return $this;
     }
     public function move(): void
     {
@@ -68,9 +77,16 @@ class Unit{
         exit();
     }
 
-    public function setArmor(Armor $armor = null): void
+    public function setArmor(Armor $armor = null): Unit
     {
         $this->armor = $armor;
+
+        return $this;
+    }
+
+    public function setShild(): Unit
+    {
+        return $this;
     }
 
 }
