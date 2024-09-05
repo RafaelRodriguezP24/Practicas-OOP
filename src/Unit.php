@@ -15,9 +15,9 @@ class Unit{
         $this->armor = new Armors\MissingArmor();
     }
 
-    public static function createSoldier(): Unit
+    public static function createSoldier($name): Unit
     {
-        $soldier = new Unit('Soldier', new Weapons\BasicSword());
+        $soldier = new Unit($name, new Weapons\BasicSword());
         $soldier->setArmor(new Armors\SilverArmor());
         return $soldier;
     }
@@ -36,7 +36,7 @@ class Unit{
     {
         $attack = $this->weapon->createAttack();
 
-        show($attack->getDescription($this, $opponent));
+        Log::info($attack->getDescription($this, $opponent));
 
         $opponent->takeDamage($attack);
     }
@@ -53,17 +53,17 @@ class Unit{
 
         $damage = $this->armor->reduceDamage($attack);
         if ($damage == 0) {
-            show("{$this->name} ha logrado esquivar el ataque");
+            Log::info("{$this->name} ha logrado esquivar el ataque");
         }
 
         $this->hp -= $damage;
 
-        show("{$this->name} ha recibido {$damage} puntos de daño");
+        Log::info("{$this->name} ha recibido {$damage} puntos de daño");
 
         if($this->hp <= 0){
             $this->die();
         }else{
-            show("{$this->name} tiene {$this->hp} puntos de vida");
+            Log::info("{$this->name} tiene {$this->hp} puntos de vida");
         }
         return $this->hp;
     }
@@ -73,7 +73,7 @@ class Unit{
     }
     private function die(): void
     {
-        show("{$this->name} ha muerto");
+        Log::info("{$this->name} ha muerto");
         exit();
     }
 

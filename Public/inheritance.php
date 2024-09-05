@@ -18,7 +18,9 @@ Translator::load([
 
 $armorArc = new ArcherArmor();
 
-$arturo = Unit::createSoldier()
+Log::setLogger(new HtmlLogger());
+
+$arturo = Unit::createSoldier('Arturo')
     ->setArmor(new blackArmor())
     ->setWeapon(new Weapons\BasicSword())
     ->setShild();
@@ -29,6 +31,7 @@ $robin->setArmor($armorArc);
 
 $robin->attack($arturo);
 $arturo->attack($robin);
+$robin->attack($arturo);
 $arturo->attack($robin);
-$arturo->attack($robin);
+$robin->attack($arturo);
 $arturo->attack($robin);
