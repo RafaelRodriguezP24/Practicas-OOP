@@ -1,0 +1,21 @@
+(2024-09-05 09:45:38) Robin Hood dispara una flecha de fuego a Arturo 
+(2024-09-05 09:45:38) Arturo ha recibido 30 puntos de daño 
+(2024-09-05 09:45:38) Arturo tiene 70 puntos de vida 
+(2024-09-05 09:45:38) Arturo ataca con la espada a Robin Hood 
+(2024-09-05 09:45:38) Robin Hood ha logrado esquivar el ataque 
+(2024-09-05 09:45:38) Robin Hood ha recibido 0 puntos de daño 
+(2024-09-05 09:45:38) Robin Hood tiene 100 puntos de vida 
+(2024-09-05 09:45:38) Robin Hood dispara una flecha de fuego a Arturo 
+(2024-09-05 09:45:38) Arturo ha recibido 30 puntos de daño 
+(2024-09-05 09:45:38) Arturo tiene 40 puntos de vida 
+(2024-09-05 09:45:38) Arturo ataca con la espada a Robin Hood 
+(2024-09-05 09:45:38) Robin Hood ha logrado esquivar el ataque 
+(2024-09-05 09:45:38) Robin Hood ha recibido 0 puntos de daño 
+(2024-09-05 09:45:38) Robin Hood tiene 100 puntos de vida 
+(2024-09-05 09:45:38) Robin Hood dispara una flecha de fuego a Arturo 
+(2024-09-05 09:45:38) Arturo ha recibido 30 puntos de daño 
+(2024-09-05 09:45:38) Arturo tiene 10 puntos de vida 
+(2024-09-05 09:45:38) Arturo ataca con la espada a Robin Hood 
+(2024-09-05 09:45:38) Robin Hood ha logrado esquivar el ataque 
+(2024-09-05 09:45:38) Robin Hood ha recibido 0 puntos de daño 
+(2024-09-05 09:45:38) Robin Hood tiene 100 puntos de vida 
