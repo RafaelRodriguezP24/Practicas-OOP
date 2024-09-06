@@ -4,7 +4,7 @@ namespace Medine;
 
 class FileLogger implements Logger
 {
-    public function info($message) : void
+    public function info(string $message) : void
     {
         file_put_contents(
             __DIR__ . '/../storage/log.txt',

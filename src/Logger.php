@@ -3,7 +3,7 @@
 namespace Medine;
 interface Logger
 {
-    public function info($message);
+    public function info(string $message);
 }
 
 

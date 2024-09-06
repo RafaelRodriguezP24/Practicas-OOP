@@ -3,7 +3,7 @@
 namespace Medine;
 class HtmlLogger implements Logger
 {
-    public function info($message) : void
+    public function info(string $message) : void
     {
             echo "<p>$message</p>";
     }

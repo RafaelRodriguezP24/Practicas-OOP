@@ -11,7 +11,7 @@ class Log
         static::$logger = $logger;
     }
 
-    public static function info($message) : void
+    public static function info(string $message) : void
     {
         static::$logger->info($message);
     }

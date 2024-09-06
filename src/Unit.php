@@ -5,17 +5,18 @@ namespace Medine;
 use Medine\Armors\Armor;
 
 class Unit{
+    protected const MAX_DAMAGE = 30;
     protected string $name;
     protected int $hp = 100;
     protected Armor $armor;
     protected Weapon $weapon;
-    public function __construct($name, Weapon $weapon ) {
+    public function __construct(string $name, Weapon $weapon ) {
         $this->name = $name;
         $this->weapon = $weapon;
         $this->armor = new Armors\MissingArmor();
     }
 
-    public static function createSoldier($name): Unit
+    public static function createSoldier(string $name): Unit
     {
         $soldier = new Unit($name, new Weapons\BasicSword());
         $soldier->setArmor(new Armors\SilverArmor());
@@ -44,14 +45,12 @@ class Unit{
     {
         return $this->hp;
     }
-    public function setHp(int $hp): void
+    public function setHp(int $damage): void
     {
-        $this->hp = $hp;
-    }
-    public function takeDamage(Attack $attack): int
-    {
+        if ($damage > static::MAX_DAMAGE) {
+            $damage = static::MAX_DAMAGE;
+        }
 
-        $damage = $this->armor->reduceDamage($attack);
         if ($damage == 0) {
             Log::info("{$this->name} ha logrado esquivar el ataque");
         }
@@ -59,6 +58,10 @@ class Unit{
         $this->hp -= $damage;
 
         Log::info("{$this->name} ha recibido {$damage} puntos de daño");
+    }
+    public function takeDamage(Attack $attack): int
+    {
+        $this->setHp($this->armor->reduceDamage($attack));
 
         if($this->hp <= 0){
             $this->die();
@@ -67,6 +70,7 @@ class Unit{
         }
         return $this->hp;
     }
+
     public function getName(): string
     {
         return $this->name;
