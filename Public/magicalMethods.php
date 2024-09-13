@@ -7,7 +7,7 @@ require '../vendor/autoload.php';
 
 $user = new User();
 
-$user->setAttributes([
+$user->fill([
     'first_name' => 'John',
     'last_name' => 'Doe',
 ]);
